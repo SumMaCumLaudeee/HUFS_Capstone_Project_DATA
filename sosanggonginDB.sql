@@ -18,7 +18,7 @@ create table member(
     name varchar(20),
     store_name varchar(20),
     category varchar(20),
-    open_date varchar(20),
+    open_date date,
     sns varchar(20),
     primary key(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -29,9 +29,3 @@ create table trend_crolling(
     likes int not null,
 	primary key (Keyword) # 수정필요
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-insert into member values
-("yewon", "0522", "luck5892@hufs.ac.kr",0,0,0,0,0,null,null,null,null,null),
-("yoongyo", "1234", "201902723@hufs.ac.kr",0,0,0,0,0,null,null,null,null,null);
-
-select * from member;
