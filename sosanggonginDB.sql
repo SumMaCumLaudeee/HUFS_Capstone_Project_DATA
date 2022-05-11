@@ -20,9 +20,13 @@ create table login(
 
 create table trend_crolling(
 	# 조회수, 좋아요수
-	Num int unsigned not null auto_increment,
+	# Num int unsigned not null auto_increment,
 	Keyword varchar(100) not null,
-	Date date not null,
+    MSV_PC int unsigned,
+    MSV_MOBILE int unsigned,
+    MSV_TOTAL int unsigned,
+    Blog int unsigned,
+    #Date date not null,
 	primary key (Num, Keyword)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
