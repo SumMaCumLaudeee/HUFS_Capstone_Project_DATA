@@ -3,61 +3,35 @@ create database sosanggongin default charset=utf8 collate=utf8_bin;
 
 use sosanggongin;
 
-drop table if exists login;
-
+drop table if exists member;
 drop table if exists trend_crolling;
-drop table if exists crolling_cafe;
-drop table if exists corlling_restaurant;
 
-drop table if exists score;
-
-create table login(
-	Id varchar(20) not null,
-	Password varchar(20) not null,
-	-- CompanyRegistrationNumber varchar(20) not null,
-	primary key (Id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-create table trend_crolling(
-	# 조회수, 좋아요수
-	# Num int unsigned not null auto_increment,
-	Keyword varchar(100) not null,
-    MSV_PC int unsigned,
-    MSV_MOBILE int unsigned,
-    MSV_TOTAL int unsigned,
-    Blog int unsigned,
-    #Date date not null,
-	primary key (Num, Keyword)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- create table crolling_cafe(
--- 	# 조회수, 좋아요수
--- 	Num int unsigned not null auto_increment,
--- 	Keyword varchar(100) not null,
---     CafeKeyword varchar(100) not null,
--- 	primary key (Num),
---     constraint Keyword
---     foreign key (Keyword) 
--- 		references trend_crolling(Keyword) 
--- 			on delete cascade
---             on update cascade
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- create table crolling_restaurant(
--- 	# 조회수, 좋아요수
--- 	Num int unsigned not null auto_increment,
--- 	Keyword varchar(100) not null,
---     RestaurantKeyword varchar(100) not null,
--- 	primary key (Num),
---     foreign key (Keyword) references trend_crolling(Keyword)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-create table score(
-	Id varchar(20) not null,
-	Date date not null,
-	FinalScore varchar(20) not null,
-	-- CompanyRegistrationNumber varchar(20) not null,
-	primary key (Id, Date),
-    foreign key (Id) references login(Id)
+create table member(
+	id varchar(20) not null,
+    pw varchar(20) not null,
+    email varchar(50) not null,
+    test_result int,
+    result_1 int,
+    result_2 int,
+    result_3 int,
+    result_4 int,
+    name varchar(20),
+    store_name varchar(20),
+    category varchar(20),
+    open_date varchar(20),
+    sns varchar(20),
+    primary key(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+create table trend_crolling(
+	keyword varchar(100) not null,
+	crolling_date date not null,
+    likes int not null,
+	primary key (Keyword) # 수정필요
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+insert into member values
+("yewon", "0522", "luck5892@hufs.ac.kr",0,0,0,0,0,null,null,null,null,null),
+("yoongyo", "1234", "201902723@hufs.ac.kr",0,0,0,0,0,null,null,null,null,null);
+
+select * from member;
