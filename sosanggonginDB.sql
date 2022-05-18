@@ -4,7 +4,9 @@ create database sosanggongin default charset=utf8 collate=utf8_bin;
 use sosanggongin;
 
 drop table if exists member;
-drop table if exists trend_crolling;
+drop table if exists cafe;
+drop table if exists food;
+drop table if exists place;
 
 create table member(
 	id varchar(20) not null,
@@ -23,9 +25,17 @@ create table member(
     primary key(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table trend_crolling(
-	keyword varchar(100) not null,
-	crolling_date date not null,
-    likes int not null,
-	primary key (Keyword) # 수정필요
+create table cafe(
+	cafe_keyword varchar(100) not null,
+	primary key (cafe_keyword)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+create table food(
+	eat_keyword varchar(100) not null,
+	primary key (eat_keyword)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+create table place(
+	place_keyword varchar(100) not null,
+	primary key (place_keyword)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
